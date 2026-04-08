@@ -1,0 +1,153 @@
+meta:
+    engine: 4.2.1
+    author: Ajay Balusu
+units:
+    leftright_angle: 10
+    column_angle: 2
+    function_angle: 3
+    function_hspacing: 4
+    function_vspacing: 3.5
+    size: u - 1
+points:
+    zones:
+        main:
+            anchor:
+                shift:
+                    - 40
+                    - 0
+                rotate: leftright_angle
+            mirror:
+                distance: 1.5u
+            columns:
+                inner: null
+                index:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: '-column_angle'
+                        origin:
+                            - '-u/2'
+                            - u/2
+                middle:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: '-column_angle'
+                        origin:
+                            - '-u/2'
+                            - u/2
+                ring:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: '-column_angle'
+                        origin:
+                            - '-u/2'
+                            - u/2
+                pinky:
+                    key:
+                        stagger: '-0.2u'
+                        spread: u + 2
+                        splay: '-column_angle'
+                        origin:
+                            - '-u/2'
+                            - u/2
+                pinkyextra:
+                    rows:
+                        center:
+                            skip: true
+                    key:
+                        stagger: '-0.2u'
+                        spread: u + 2
+                        splay: '-column_angle'
+                        origin:
+                            - '-u/2'
+                            - u/2
+                outer:
+                    rows:
+                        center:
+                            width: 3(size) + 1 + 2
+                            shift:
+                                - '-0.5(size) - 1.5'
+                                - 0
+                        top:
+                            shift:
+                                - 0.5(size) + 1.5
+                                - 0
+                    key:
+                        width: 2(size)
+                        spread: u + 0.5(size) + 2
+            rows:
+                bottom: null
+                center: null
+                top: null
+                numbers: null
+        functions:
+            anchor:
+                shift:
+                    - 40 - cos(80*pi/180) * 4u
+                    - 76
+            mirror:
+                distance: 1.5u
+            columns:
+                '0':
+                    key:
+                        stagger: 0
+                        spread: u + function_hspacing
+                        splay: function_angle
+                '1':
+                    key:
+                        stagger: 1.5function_vspacing
+                        spread: u + function_hspacing
+                        splay: function_angle
+                '2':
+                    key:
+                        stagger: 1.5function_vspacing
+                        spread: u + function_hspacing
+                        splay: '-function_angle'
+                '3':
+                    key:
+                        stagger: 0
+                        spread: u + function_hspacing
+                        splay: '-function_angle'
+                '4':
+                    key:
+                        stagger: '-0.5function_vspacing'
+                        spread: u + function_hspacing
+                        splay: '-function_angle'
+                '5':
+                    key:
+                        stagger: '-0.5function_vspacing'
+                        spread: u + function_hspacing
+                        splay: 0
+                '6':
+                    key:
+                        stagger: 0
+                        spread: u + function_hspacing
+                        splay: function_angle
+            key:
+                height: 0.5(size)
+        special:
+            anchor:
+                shift:
+                    - 75
+                    - -25
+            mirror:
+                distance: 1.5u
+            columns:
+                alt:
+                    key:
+                        splay: 4
+                win:
+                    key:
+                        stagger: 1
+                        spread: 1.75u
+                        splay: 4
+                ctrl:
+                    key:
+                        stagger: 1
+                        spread: 1.75u + 0.25(size)
+                        splay: 4
+                        width: 2(size)
+            key:
+                width: 1.5(size)

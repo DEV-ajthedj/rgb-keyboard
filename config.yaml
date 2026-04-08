@@ -1,0 +1,132 @@
+meta:
+    engine: 4.2.1
+    author: Ajay Balusu
+units:
+    leftright_angle: 10
+    column_angle: 2
+    function_angle: 3
+    function_hspacing: 4
+    function_vspacing: 3.5
+    size: u - 1
+
+# KEYBOARD LAYOUT
+#
+# Notes:
+# pu = page up
+# pd = page down
+# ps = print screen
+#
+#
+# ESC    F F F F F F    F F F F F F ps
+# ~      1 2 3 4 5 6    7 8 9 0 - = BACKSPACE
+# TAB    q w e r t y    u i o p [ ] \
+# CAP    a s d f g h    j k l ; '   ENTER
+# SHIFT  z x c v b pu  pd n m , . / SHIFT
+# CTRL WINDOWS ALT SPACE ALT FN CTRL
+
+points:
+    zones:
+        main:
+            anchor:
+                shift: [40, 0]
+                rotate: leftright_angle
+            mirror: &mirror
+                distance: 1.5u
+            columns:
+                inner:
+                index:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: -column_angle
+                        origin: [-u/2, u/2]
+                middle:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: -column_angle
+                        origin: [-u/2, u/2]
+                ring:
+                    key:
+                        stagger: 0.2u
+                        spread: u + 2
+                        splay: -column_angle
+                        origin: [-u/2, u/2]
+                pinky:
+                    key:
+                        stagger: -0.2u
+                        spread: u + 2
+                        splay: -column_angle
+                        origin: [-u/2, u/2]
+                pinkyextra:
+                    rows:
+                        center:
+                            skip: true
+                    key:
+                        stagger: -0.2u
+                        spread: u + 2
+                        splay: -column_angle
+                        origin: [-u/2, u/2]
+                outer:
+                    rows:
+                        center:
+                            width: 3(size) + 1 + 2
+                            shift: [-0.5(size) - 1.5, 0]
+                        top.shift: [0.5(size) + 1.5, 0]
+                    key:
+                        width: 2(size)
+                        spread: u + 0.5(size) + 2
+            rows:
+                bottom:
+                center:
+                top:
+                numbers:
+        
+        functions:
+            anchor.shift: [40 - cos(80*pi/180) * 4u, 76]
+            mirror: *mirror
+            columns:
+                0.key.stagger: 0
+                0.key.spread: u + function_hspacing
+                0.key.splay: function_angle
+                1.key.stagger: 1.5function_vspacing
+                1.key.spread: u + function_hspacing
+                1.key.splay: function_angle
+                2.key.stagger: 1.5function_vspacing
+                2.key.spread: u + function_hspacing
+                2.key.splay: -function_angle
+                3.key.stagger: 0
+                3.key.spread: u + function_hspacing
+                3.key.splay: -function_angle
+                4.key.stagger: -0.5function_vspacing
+                4.key.spread: u + function_hspacing
+                4.key.splay: -function_angle
+                5.key.stagger: -0.5function_vspacing
+                5.key.spread: u + function_hspacing
+                5.key.splay: 0
+                6.key.stagger: 0
+                6.key.spread: u + function_hspacing
+                6.key.splay: function_angle
+            key:
+                height: 0.5(size)
+
+        special:
+            anchor.shift: [75, -25]
+            mirror: *mirror
+            columns:
+                alt:
+                  key:
+                    splay: 4
+                win:
+                  key:
+                    stagger: 1
+                    spread: 1.75u
+                    splay: 4
+                ctrl:
+                  key:
+                    stagger: 1
+                    spread: 1.75u + 0.25(size)
+                    splay: 4
+                    width: 2(size)
+            key:
+              width: 1.5(size)
